@@ -1,0 +1,25 @@
+package interator.book;
+
+import interator.common.Iterator;
+
+public class BookShelfIterator implements Iterator {
+    private BookShelf bookShelf;
+    private int index;
+
+    public BookShelfIterator(BookShelf bookShelf) {
+        this.bookShelf = bookShelf;
+        this.index = 0;
+    }
+
+    @Override
+    public boolean hasNext() {
+        return index < bookShelf.getLength();
+    }
+
+    @Override
+    public Object next() {
+        Book book = bookShelf.getBooksAt(index);
+        index++;
+        return book;
+    }
+}
